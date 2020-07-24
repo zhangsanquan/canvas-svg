@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg</title>
+    <style>
+        #box{
+            width:800px;
+            height:600px;
+            margin:0 auto;
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%">
+        <circle cx="100" cy="300" r="50" fill="red">
+            <animate begin="0s" dur="3s" attributeName="cx" values="100;200;300;400;500"
+             fill="freeze">
+                    <!--  注意这里的 attributeName 与图形的xy相对应
+                           改成cy就是上下运动
+                           fill=freeze  停留再最后一帧不会回到原点
+                            repeatCount="indefinite" 重复运动
+                      -->
+            </animate>
+            <animate begin="3s" dur="1s" attributeName="cy"
+              fill="freeze"values="300;400;500">
+            </animate>
+            <animate begin="4s" id="svg3" dur="2s" attributeName="cx"
+                     fill="freeze"values="500;400;300;200;100">
+            </animate>
+            <animate begin="svg3.end" dur="2s" attributeName="cy"
+                     fill="freeze"values="500;400;300;">
+                <!-- begin 可以跟上一个运动绑定，设置上一个运动完才开始-->
+            </animate>
+        </circle>
+        
+        <rect x="100" y="600" width="200" height="100" fill="blue" id="run">
+            点击运动
+            <animate begin="run.click" dur="2s" from="100" to="500"
+                     attributeName="x" repeatCount="indefinite" >
+                        <!-- 设个ID 然后绑定click -->
+            </animate>
+        </rect>
+    </svg>
+</div>
+</body>
+</html>

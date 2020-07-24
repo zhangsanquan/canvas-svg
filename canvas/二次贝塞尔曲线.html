@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二次贝塞尔曲线</title>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    你的浏览器居然不支持Canvas
+</canvas>
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var cxt=canvas.getContext('2d');
+    cxt.rect(0,0,800,600);
+    cxt.fillStyle='#F9F9F9';
+    cxt.fill();
+
+    cxt.lineWidth=3;
+    cxt.strokeStyle='#333';
+
+    //向上的
+    cxt.beginPath();
+    cxt.moveTo(200,400);   //三个点都是控制点;
+    cxt.quadraticCurveTo(300, 200, 400, 400);
+    cxt.stroke();
+
+    //向下的
+    cxt.beginPath();
+    cxt.strokeStyle='#333';
+    cxt.moveTo(400,400);   //三个点都是控制点;
+    cxt.quadraticCurveTo(500, 600, 600, 400);
+    cxt.stroke();
+
+    //X  轴
+    cxt.beginPath();
+    cxt.strokeStyle='red';
+    cxt.moveTo(100,400);
+    cxt.lineTo(700,400);
+    cxt.lineCap='round';
+    cxt.stroke();
+    //Y轴
+    cxt.beginPath();
+    cxt.strokeStyle='red';
+    cxt.moveTo(200,100);
+    cxt.lineTo(200,500);
+    cxt.lineCap='round';
+    cxt.stroke();
+</script>
+</body>
+</html>

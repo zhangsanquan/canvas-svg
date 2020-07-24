@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+<div>
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器居然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var ctx=canvas.getContext('2d');
+    ctx.fillStyle='yellowgreen';
+    ctx.arc(400, 300, 100, 0 ,Math.PI*1.5);
+    ctx.fill();
+
+    ctx.beginPath();   //起点
+    ctx.moveTo(400,100);
+    ctx.lineTo(400,300);
+    ctx.lineTo(600,300);
+    ctx.closePath();   //终点
+    ctx.lineWidth=5;
+    ctx.fillStyle='white';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.font='20px Verdana';
+    ctx.fillStyle='';
+    ctx.textAlign="left";
+    ctx.fillText('75%',320,300);  //内容  x,y
+    ctx.fill();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas 渐变色</title>
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器居然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var context=canvas.getContext('2d');
+    context.rect(200,100,400,400);
+    var grad=context.createLinearGradient(200,300,600,300);  /*矩形的左右两边的中点*/
+    grad.addColorStop(0,"blue");   //左边蓝色
+    grad.addColorStop(0.5,"white"); //中间白色
+    grad.addColorStop(1,"black");   //右边黑色
+
+    context.fillStyle=grad;
+    context.fill();
+
+
+</script>
+</body>
+</html>

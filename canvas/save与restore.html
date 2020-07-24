@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>save/restore</title>
+</head>
+<body>
+<canvas id="can" width="800"height="600" style="display:block;margin:100px auto;border: 1px solid;"></canvas>
+<script>
+    let ctx=can.getContext("2d");
+    ctx.fillStyle="blue";
+    ctx.fillRect(100,100,600,400);
+    ctx.save();  //保存
+    ctx.fillStyle="green";
+    ctx.fillRect(200,200,400,200);
+    ctx.restore(); //恢复到上一个状态，这里是恢复到上一个的填充色，所以下一行代码没设置fillstyle
+    ctx.fillRect(250,250,300,100);
+</script>
+</body>
+</html>

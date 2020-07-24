@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="can"></canvas>
+
+<script>
+    can.width=document.documentElement.clientWidth||document.body.clientWidth;
+    can.height=document.documentElement.clientHeight||document.body.clientHeight;
+    can.style.background="#fff";
+    let ctx=can.getContext("2d");
+    ctx.lineWidth=10;
+    ctx.translate(200,300); //改变圆心相对基点
+
+    function loop(color,x,y){
+        ctx.beginPath();
+        ctx.strokeStyle=color;
+        ctx.arc(x,y,100,0,360);
+        ctx.stroke();
+        ctx.closePath();
+    }
+    loop("blue",0,0);  //蓝
+    loop("black",250,0);//黑
+    loop("red",500,0); //红
+    loop("yellow",125,100);//黄
+    loop("green",375,100)
+
+</script>
+</body>
+</html>

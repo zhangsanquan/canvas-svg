@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas画圆,渐变圆</title>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    你的浏览器居然不支持Canvas？！赶快换一个吧！！
+</canvas>
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var ctx=canvas.getContext('2d');
+    ctx.lineWidth=30;
+
+    var grd=ctx.createLinearGradient(170,300,630,300);
+    grd.addColorStop("0","black");
+    grd.addColorStop("0.3","magenta");
+    grd.addColorStop("0.5","blue");
+    grd.addColorStop("0.6","green");
+    grd.addColorStop("0.8","yellow");
+    grd.addColorStop(1,"red");
+
+    ctx.strokeStyle = grd;
+
+    ctx.arc(400, 300, 200, 0 ,Math.PI*2);
+
+    ctx.stroke();
+
+</script>
+</body>
+</html>

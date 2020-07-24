@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平移</title>
+
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    你的浏览器不支持Canvas
+</canvas>
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var context=canvas.getContext('2d');
+    context.fillStyle='#fff';
+    context.fillRect(0,0,800,600);
+
+    context.fillStyle = "#00AAAA";
+    context.fillRect(100,100,200,100);
+
+    context.save();   //开始save
+    context.fillStyle='blue';
+    context.translate(100,100);
+    context.fillRect(100,100,200,100);
+    context.restore();  //结束用restore() 这样是为了防止下次平移相对起点位置变化
+
+    context.save();
+    context.fillStyle='green';
+    context.translate(200,200);
+    context.fillRect(100,100,200,100);
+    context.restore();
+</script>
+</body>
+</html>

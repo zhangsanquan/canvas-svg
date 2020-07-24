@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            display:block;
+            position:absolute;
+            left:300px;
+            top:100px;
+        }
+    </style>
+</head>
+<body onselectstart ='return false' >
+<img src="../images/1.png" alt="刮刮奖" width="800" height="500" id="img">
+<canvas id="can" width="800" height="500" ></canvas>
+
+<script>
+  img.onload=function(){ //预加载图片
+      can.style.position="absolute"; //绝对定位，把canvas覆盖在图片上
+      can.style.left="300px";
+      can.style.top="100px";
+      can.width = img.width;
+      can.height = img.height;
+
+       var cxt = can.getContext("2d");
+       cxt.fillStyle="#bbb";
+       cxt.fillRect(0,0,800,500);  //起点是相对canva的左上角坐标
+       cxt.globalCompositeOperation="destination-out";
+       cxt.strokeStyle="#eee";
+       cxt.lineCap="round";
+       cxt.lineWidth=30;
+
+       //开始刮卡
+      document.onmousedown=function(ev){
+          var e=ev || event;
+          var x=e.pageX-can.offsetLeft;
+          var y=e.pageY-can.offsetTop;
+          cxt.beginPath();
+          cxt.arc(x,y,15,0,Math.PI*2,false);
+          cxt.fill();
+          cxt.moveTo(x,y);
+          document.onmousemove=function(ev){
+              var e = ev || event;
+              var x1 = e.pageX-can.offsetLeft;
+              var y1 = e.pageY-can.offsetTop;
+              cxt.lineTo(x1,y1);
+              cxt.stroke();
+          };
+          document.onmouseup=function(e){
+              document.onmousemove=null;
+              document.onmouseup=null;
+          }
+
+      }
+  }
+</script>
+</body>
+</html>

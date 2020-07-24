@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    你的浏览器不支持Canvas
+</canvas>
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var context=canvas.getContext('2d');
+    context.fillStyle='#fff';
+    context.fillRect(0,0,800,600);
+
+
+    context.beginPath();
+    context.font='50px Verdana';
+    context.fillStyle='green';
+    context.textAlign="left";
+    context.strokeText('hello world 你好漂亮啊',50,100);  //三个参数： text文本  x  y
+    context.fillText('hello world 你好漂亮啊',50,200);  //字体填充颜色
+
+
+
+</script>
+</body>
+</html>

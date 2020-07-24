@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas画了一个六角星</title>
+</head>
+<body>
+<canvas id="can">
+    您的浏览器不支持canvas
+</canvas>
+
+<script>
+     var canvas=document.getElementById('can');
+         canvas.width=800;
+         canvas.height=600;
+         canvas.style.border='1px solid red';
+
+     var context=canvas.getContext('2d');
+         context.beginPath();   //起点
+         context.moveTo(100,100);
+         context.lineTo(500,100);
+         context.lineTo(300,500);
+         context.closePath();   //终点
+         context.lineWidth=5;
+         context.fillStyle='red';
+         //context.stroke();  黑色边框
+         context.fill();     //黑色背景
+
+
+     context.beginPath();
+     context.moveTo(300,0);
+     context.lineTo(100,400);
+     context.lineTo(500,400);
+     context.closePath();
+     context.lineWidth = 5;
+     context.strokeStyle = "blue";
+     context.stroke();
+
+</script>
+</body>
+</html>

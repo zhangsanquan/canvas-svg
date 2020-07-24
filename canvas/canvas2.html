@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘制一个魔方</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+     body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can"></canvas>
+
+
+<script>
+    window.onload=function(){
+        var canvas = document.getElementById('can');
+        var w = canvas.width = window.innerWidth;
+        var h = canvas.height = window.innerHeight;
+        var context = canvas.getContext('2d');
+
+        window.onresize = function(){
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        };
+        context.beginPath();
+        context.rect(0, 0, w, h);
+        context.fillStyle = "white";
+        context.fill();
+
+        context.beginPath();
+        for(var i=0; i<=20; i++){
+            drawWhiteRect(context, 0 + 24 * i, 0 + 24 * i, w - 48 * i, h - 48 * i);
+            drawBlackRect(context, 5 + 24 * i, 0 + 24 * i, w - 48 * i, h - 48 * i);
+        }
+
+        //中心点背景设为黑色
+  /*    context.beginPath();
+        context.rect(395, 295, 5, 5);
+        context.fillStyle = "black";
+        context.lineWidth = 5;
+        context.fill();
+        context.stroke();*/
+    };
+
+    function drawBlackRect(cxt, x, y, width, height){  //黑线
+        cxt.beginPath();
+        cxt.rect(x, y, width, height);
+
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = "purple";
+
+        cxt.stroke();
+    }
+
+    function drawWhiteRect(cxt, x, y, width, height){  //白线
+        cxt.beginPath();
+        cxt.rect(x, y, width, height);
+
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = "white";
+
+        cxt.stroke();
+    }
+
+</script>
+
+</body>
+</html>

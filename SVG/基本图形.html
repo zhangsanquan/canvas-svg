@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width:800px;
+            height: 800px;
+            border:1px solid;
+            margin:100px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="100" height="50" style="fill:red;stroke-width:10;stroke:yellow;">
+           矩形         <!-- fill:color / none / transparent -->
+        </rect>
+
+        <circle cx="300" cy="50" r="50" stroke="red" stroke-width="2" fill="none">
+            圆形            <!-- stroke 和fill  可以写成属性也可以写在style里面 与上面对比-->
+        </circle>
+
+        <ellipse cx="150" cy="200" rx="100" ry="50" fill="transparent" stroke="red">
+            椭圆
+        </ellipse>
+
+        <line x1="100" y1="300" x2="500" y2="300" stroke="rgb(99,99,99)" stroke-width="10">
+            线条
+        </line>
+
+        <polyline points="0,400 300,500 500,400 700,500" fill="none" stroke="blue" stroke-width="20">
+             曲线
+        </polyline>
+
+        <polygon points="0,600 300,600 300,700" fill="none" stroke="red">
+            多边形 (会自动闭合)
+        </polygon>
+
+        <path d="M400,750 L600,550 L800,750 Z" fill="#aaa">
+            路径  <!-- M：moveTo   L:lineTo  Z:closepath 大写表示绝对路径，小写表示相对路径-->
+        </path>
+
+
+    </svg>
+</div>
+</body>
+</html>

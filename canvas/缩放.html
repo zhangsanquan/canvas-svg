@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缩放</title>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    你的浏览器不支持Canvas
+</canvas>
+
+
+<script>
+    canvas.width=800;
+    canvas.height=600;
+    var context=canvas.getContext('2d');
+    context.fillStyle='#fff';
+    context.fillRect(0,0,800,600);
+
+    context.strokeStyle = "red";
+    context.lineWidth = 5;
+
+    for(var i=0;i<4;i++){
+        context.save();
+        context.scale(i,i);
+        context.strokeRect(50,50,150,100);
+        context.restore();
+    }
+</script>
+</body>
+</html>
